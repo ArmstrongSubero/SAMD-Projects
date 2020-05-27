@@ -5,7 +5,7 @@
  * Program: Source file for application
  * Compiler: ARM-GCC (v6.3.1, Atmel Studio 7.0)
  * Program Version 1.0
- * Program Description: This header file contains your application source
+ * Program Description: This file contains your application source
  *
  * Modified From: None
  * 
@@ -81,7 +81,7 @@ void AppRun(void)
 	
 	while(1)
 	{
-		 // Set the drive strength high 
+		 // Set the drive strength to strong
 		 PORT->Group[LED0_PORT].PINCFG[LED0_PIN_NUMBER].bit.DRVSTR = 1;
 		 
 		
