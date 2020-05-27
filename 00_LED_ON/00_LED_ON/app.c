@@ -53,7 +53,8 @@ void AppInit(void)
 	REG_PORT_DIR0 |= LED0_PIN_MASK;
 	
 	// Set LED0 OFF
-	REG_PORT_DIR0 &= LED0_PIN_MASK;
+	REG_PORT_OUTCLR0 |= LED0_PIN_MASK;
+	
 
 } // AppInit()
 
@@ -77,8 +78,17 @@ void AppInit(void)
  ******************************************************************************/
 void AppRun(void)
 {
-	// Turn the LED on PA17 on 
-	REG_PORT_OUTSET0 = LED0_PIN_MASK;
+	
+	while(1)
+	{
+		 // Set the drive strength high 
+		 PORT->Group[LED0_PORT].PINCFG[LED0_PIN_NUMBER].bit.DRVSTR = 1;
+		 
+		
+		 // Turn the LED on PA17 ON
+	     REG_PORT_OUTSET0 = LED0_PIN_MASK;
+	}
+
 	
 } // Apprun()
 
