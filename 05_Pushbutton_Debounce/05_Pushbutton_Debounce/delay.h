@@ -27,7 +27,7 @@
 
 
 /**
- * \def delay_ms
+ * \def delay_cycles
  * \brief Delay in at least specified number of clock cycles
  * \param delay (Delay in clock cycles)
  */
