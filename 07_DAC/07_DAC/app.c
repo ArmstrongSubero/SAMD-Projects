@@ -59,6 +59,7 @@ void AppInit(void)
 } // AppInit()
 
 
+
 /*******************************************************************************
  * Function:        void AppInit(void)
  *
@@ -78,13 +79,52 @@ void AppInit(void)
  ******************************************************************************/
 void AppRun(void)
 {
+	/* -------------------------------------------------
+	* 1) Enable bus clock to APBC mask
+	*/
+	REG_PM_APBCMASK |=  PM_APBCMASK_DAC;
+	
+	
+    /* -------------------------------------------------
+	* 2) select DAC clock
+	*/
+	GCLK->CLKCTRL.reg = 
+	GCLK_CLKCTRL_ID(DAC_GCLK_ID) |  // select DAC clock
+	GCLK_CLKCTRL_CLKEN |            // enable the clock
+	GCLK_CLKCTRL_GEN(0);            //  select GCLK GEN0
+	
+	
+	/* -------------------------------------------------
+	* 3) reset DAC to its initial settings and disable
+	*/
+	DAC->CTRLA.reg = DAC_CTRLA_SWRST;
+	
+	
+	/* -------------------------------------------------
+	* 4) Configure Parameters 
+	*/
+	// set vref as avcc
+	DAC->CTRLB.bit.REFSEL = DAC_CTRLB_REFSEL_AVCC_Val;
+	
+	// enable external output, will put DAC output to
+	// internal ADC positive MUX input and to the
+	// Vout PIN PA02
+	DAC->CTRLB.bit.EOEN = 1;
+	
+	/* -------------------------------------------------
+	* 5) Enable the DAC
+	*/
+	DAC->CTRLA.bit.ENABLE = 1;
+	
+	
 	while(1)
 	{
-		// Set the drive strength to strong
-		PORT->Group[LED0_PORT].PINCFG[LED0_PIN_NUMBER].bit.DRVSTR = 1;
-		
-		// Turn the LED on PA17 ON
-		REG_PORT_OUTSET0 = LED0_PIN_MASK;
+		// write values to DAC
+		for (int i = 0; i < 1023; i++)
+		{
+			// convert the 10-bit value into voltage by the DAC
+			REG_DAC_DATA = i;
+		}
 	}
 
 } // Apprun()

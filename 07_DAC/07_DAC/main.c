@@ -8,6 +8,7 @@
  * Program Description: This is the main file
  * Hardware Description: An LED is connected to pin PA17 via a 1k resistor
  *                       The internal clock frequency can be viewed on PIN PA28
+ *                       The output of the DAC can be viewed on pin PA02
  *
  * Modified From: None
  * 
