@@ -46,7 +46,7 @@ void ClocksInit(void);	// Configure Clock, Wait States and synch, bus clocks for
  *
  * Side Effects:    None
  *
- * Overview:        This interrupt handler is called on SysTick timer underflow
+ * Overview:        This is our main function
  *
  * Note:
  *

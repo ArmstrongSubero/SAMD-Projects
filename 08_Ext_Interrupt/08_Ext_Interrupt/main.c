@@ -8,6 +8,7 @@
  * Program Description: This is the main file
  * Hardware Description: An LED is connected to pin PA17 via a 1k resistor
  *                       The internal clock frequency can be viewed on PIN PA28
+ *                       A pullup pushbutton is connected to pin PA07
  *
  * Modified From: None
  * 
@@ -16,7 +17,7 @@
  * Author                Rev     Date          Description
  * Armstrong Subero      1.1     26/05/2020    Initial Release
  *
- * Updated on May 26, 2020, 11:51 AM
+ * Updated on May 31, 2020, 11:21 AM
  */
 
 
@@ -26,7 +27,6 @@
 #include "sam.h"
 #include "definitions.h"
 #include "app.h"
-
 
 //////////////////////////////////////////////////////////////////////////
 // Function Prototypes
