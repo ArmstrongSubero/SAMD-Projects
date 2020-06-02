@@ -73,7 +73,7 @@ uint8_t spiSend(uint8_t data)
 }
 
 /*******************************************************************************
- * Function:        void AppInit(void)
+ * Function:        void AppRun(void)
  *
  * PreCondition:    None
  *

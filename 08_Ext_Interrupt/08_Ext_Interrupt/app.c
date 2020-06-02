@@ -65,7 +65,7 @@ void AppInit(void)
 
 
 /*******************************************************************************
- * Function:        void AppInit(void)
+ * Function:        void AppRun(void)
  *
  * PreCondition:    None
  *

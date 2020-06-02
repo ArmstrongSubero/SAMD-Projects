@@ -14,7 +14,7 @@
  * Author             Rev     Date          Description
  * Armstrong Subero   1.0     26/05/2020    Initial Release.
  * 
- * Updated on May 28, 2020, 11:37 PM
+ * Updated on May 26, 2020, 11:40 AM
  */
 
 //////////////////////////////////////////////////////////////////////////
@@ -23,8 +23,10 @@
 #include "app.h"
 #include "clock.h"
 
-#define F_CPU 48000000UL
-#include "delay.h"
+#include "USART3.h"
+#include "I2C1.h"
+
+
 
 /*******************************************************************************
  * Function:        void AppInit(void)
@@ -51,21 +53,14 @@ void AppInit(void)
 		at chip startup. It is set to 1MHz.
 	*/
 	ClocksInit();
-	
-	// Assign LED0 as OUTPUT
-	REG_PORT_DIR0 = LED0_PIN_MASK;
-	
-	// Set LED0 OFF
-	REG_PORT_OUTCLR0 = LED0_PIN_MASK;
-	
-	// Assign Switch on PA16 as INPUT
-	PORT->Group[0].PINCFG[16].reg = PORT_PINCFG_INEN;
 
 } // AppInit()
 
 
+
+
 /*******************************************************************************
- * Function:        void AppRun(void)
+ * Function:        void AppInit(void)
  *
  * PreCondition:    None
  *
@@ -83,32 +78,52 @@ void AppInit(void)
  ******************************************************************************/
 void AppRun(void)
 {
-	// Set the drive strength to strong
-	PORT->Group[LED0_PORT].PINCFG[LED0_PIN_NUMBER].bit.DRVSTR = 1;
+	// Initialize the UART at 9600 baud
+	UART3_Init(9600);
+	delay_ms(500);
+	
+	// Initialize the I2C module
+	UART3_Write_Text("Start Init\n");
+	I2C1_init();
+	UART3_Write_Text("Init Success\n");	
+	
+	
+	// variable to hold our data
+	uint8_t data;
 	
 	while(1)
 	{
+		UART3_Write_Text("Start Write\n");
 		
-		// pull up mode normally high
-		// so we keep LED off
-		if((PORT->Group[0].IN.reg & PORT_PA16) == 0)
+		// write 10 to address 0x50 to location 0x20
+		I2C1_write_byte(0x50, 0x20, 10);
+		UART3_Write_Text("Write Stop\n");
+		delay_ms(100);
+		
+		UART3_Write_Text("Start Read\n");
+		// read data at address 0x20 and store it
+		I2C1_read_byte(0x50, 0x20, &data);
+		UART3_Write_Text("Stop Read\n");
+		delay_ms(100);
+		
+		// get the data
+		uint8_t my_Read = data;
+		
+		// see if the data matches
+		if(my_Read==10)
 		{
-			// delay a little
-			delay_ms(100);
-			
-			if((PORT->Group[0].IN.reg & PORT_PA16) == 0)
-			{
-				// keep LED off
-				REG_PORT_OUTCLR0 = LED0_PIN_MASK;
-			}
+			UART3_Write_Text("Read Byte\n");
+			UART3_Write_Text("Match\n");
+			UART3_Write_Text("Read Byte Done\n");
 		}
 		
+		// else we dont have a match
 		else
 		{
-			// turn LED on
-			REG_PORT_OUTSET0 = LED0_PIN_MASK;
+			UART3_Write_Text("No Match\n");
 		}
+		
+		delay_ms(1000);	
 	}
-
 } // Apprun()
 
