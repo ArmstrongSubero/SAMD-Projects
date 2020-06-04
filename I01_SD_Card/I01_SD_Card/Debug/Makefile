@@ -46,7 +46,7 @@ C_SRCS +=  \
 ../diskio.c \
 ../ff.c \
 ../main.c \
-../SD.c \
+../sd.c \
 ../SPI.c \
 ../USART3.c
 
@@ -66,7 +66,7 @@ Device_Startup/system_samd21.o \
 diskio.o \
 ff.o \
 main.o \
-SD.o \
+sd.o \
 SPI.o \
 USART3.o
 
@@ -79,7 +79,7 @@ Device_Startup/system_samd21.o \
 diskio.o \
 ff.o \
 main.o \
-SD.o \
+sd.o \
 SPI.o \
 USART3.o
 
@@ -92,7 +92,7 @@ Device_Startup/system_samd21.d \
 diskio.d \
 ff.d \
 main.d \
-SD.d \
+sd.d \
 SPI.d \
 USART3.d
 
@@ -105,7 +105,7 @@ Device_Startup/system_samd21.d \
 diskio.d \
 ff.d \
 main.d \
-SD.d \
+sd.d \
 SPI.d \
 USART3.d
 
@@ -181,7 +181,7 @@ Device_Startup/system_samd21.o: ../Device_Startup/system_samd21.c
 	@echo Finished building: $<
 	
 
-./SD.o: .././SD.c
+./sd.o: .././sd.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAMD21G18A__ -DDEBUG -DDEBUG -DDEBUG -DDEBUG -DDEBUG -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAMD21_DFP\1.3.331\samd21a\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

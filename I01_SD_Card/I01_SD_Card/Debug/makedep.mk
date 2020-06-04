@@ -18,7 +18,7 @@ ff.c
 
 main.c
 
-SD.c
+sd.c
 
 SPI.c
 

@@ -85,9 +85,6 @@ DRESULT disk_read (
     }
 		if (count == 1)
 		{
-			UART3_Write_Text("Count is: \n");
-			UART3_Write_Text((char*)count);
-			UART3_Write_Text("\n");
 			res = SDCard_ReadSingleBlock(sector,buff);
 		}
 		else
