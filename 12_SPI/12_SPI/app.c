@@ -135,16 +135,16 @@ void AppRun(void)
 	   * 4) Configure SPI Module
 	   */ 
 	   // Disable the SERCOM SPI module 
-	   SERCOM5->SPI.CTRLA.bit.ENABLE = 0;
+	   SERCOM1->SPI.CTRLA.bit.ENABLE = 0;
 
        // Wait for synchronization 
-       while(SERCOM5->SPI.SYNCBUSY.bit.SWRST);
+       while(SERCOM1->SPI.SYNCBUSY.bit.SWRST);
 
        // Perform a software reset 
-       SERCOM5->SPI.CTRLA.bit.SWRST = 1;
+       SERCOM1->SPI.CTRLA.bit.SWRST = 1;
 		   
        // Wait for synchronization 
-       while(SERCOM5->SPI.CTRLA.bit.SWRST);
+       while(SERCOM1->SPI.CTRLA.bit.SWRST);
 
 	   SERCOM1->SPI.CTRLA.reg = 
 	   SERCOM_SPI_CTRLA_MODE_SPI_MASTER |   // set SPI Master Mode
