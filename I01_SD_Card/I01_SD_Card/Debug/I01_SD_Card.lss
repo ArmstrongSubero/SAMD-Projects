@@ -17,23 +17,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   6 .comment      00000059  00000000  00000000  00020464  2**0
                   CONTENTS, READONLY
-  7 .debug_info   000115a8  00000000  00000000  000204bd  2**0
+  7 .debug_info   000115ad  00000000  00000000  000204bd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 000012a0  00000000  00000000  00031a65  2**0
+  8 .debug_abbrev 000012a0  00000000  00000000  00031a6a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    00005c52  00000000  00000000  00032d05  2**0
+  9 .debug_loc    00005c52  00000000  00000000  00032d0a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_aranges 00000368  00000000  00000000  00038957  2**0
+ 10 .debug_aranges 00000368  00000000  00000000  0003895c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000360  00000000  00000000  00038cbf  2**0
+ 11 .debug_ranges 00000360  00000000  00000000  00038cc4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_macro  00013984  00000000  00000000  0003901f  2**0
+ 12 .debug_macro  00013984  00000000  00000000  00039024  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00004c06  00000000  00000000  0004c9a3  2**0
+ 13 .debug_line   00004c0a  00000000  00000000  0004c9a8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    000749ff  00000000  00000000  000515a9  2**0
+ 14 .debug_str    000749ff  00000000  00000000  000515b2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_frame  00000ba8  00000000  00000000  000c5fa8  2**2
+ 15 .debug_frame  00000ba8  00000000  00000000  000c5fb4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -389,6 +389,7 @@ void AppRun(void)
      23c:	4798      	blx	r3
 	 }
 	 
+	 // All good on the close
 	 UART3_Write_Text("Closing Success\n");
      23e:	4825      	ldr	r0, [pc, #148]	; (2d4 <AppRun+0x1a0>)
      240:	4b06      	ldr	r3, [pc, #24]	; (25c <AppRun+0x128>)
@@ -5941,10 +5942,10 @@ uint8_t SDCard_WriteMultipleBlock(uint32_t addr, uint8_t *buf, uint8_t count)
     2258:	0052      	lsls	r2, r2, #1
     225a:	4b13      	ldr	r3, [pc, #76]	; (22a8 <SDCard_WriteMultipleBlock+0xe8>)
     225c:	619a      	str	r2, [r3, #24]
-	 {
 		 
 	 }
 	 
+	 // done writing
 	 SDCard_SS(1);
 	 SPI_SD_Send_Byte(0xFF);
     225e:	20ff      	movs	r0, #255	; 0xff
@@ -6041,7 +6042,7 @@ void SPI_Initialize_Fast(void)
       /* -------------------------------------------------
 	  * 3) setup pins
 	  */ 
-	  //Using the WRCONFIG register to bulk configure PA16 for being configured the SERCOM5 SPI MASTER MISO
+	  //Using the WRCONFIG register to bulk configure PA16 for being configured the SERCOM1 SPI MASTER MISO
 	  PORT->Group[0].WRCONFIG.reg =
     22e0:	4b1c      	ldr	r3, [pc, #112]	; (2354 <SPI_Initialize_Fast+0x94>)
     22e2:	4a1d      	ldr	r2, [pc, #116]	; (2358 <SPI_Initialize_Fast+0x98>)
@@ -6050,7 +6051,7 @@ void SPI_Initialize_Fast(void)
 	       PORT_WRCONFIG_INEN |									 //Enable input on this pin MISO
 	       PORT_WRCONFIG_PINMASK((uint16_t)((PORT_PA18) >> 16)); //Selecting which pin is configured  PA17 
 	       
-	       //Using the WRCONFIG register to bulk configure both PB22 and PB23 for being configured the SERCOM5 SPI MASTER MOSI and SCK pins
+	       //Using the WRCONFIG register to bulk configure both PB22 and PB23 for being configured the SERCOM1 SPI MASTER MOSI and SCK pins
 	       PORT->Group[0].WRCONFIG.reg =
     22e6:	4a1d      	ldr	r2, [pc, #116]	; (235c <SPI_Initialize_Fast+0x9c>)
     22e8:	629a      	str	r2, [r3, #40]	; 0x28

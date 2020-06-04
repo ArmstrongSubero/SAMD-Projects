@@ -1994,7 +1994,7 @@ OUTPUT(I01_SD_Card.elf elf32-littlearm)
  .comment       0x00000059       0x5a SPI.o
  .comment       0x00000059       0x5a USART3.o
 
-.debug_info     0x00000000    0x115a8
+.debug_info     0x00000000    0x115ad
  .debug_info    0x00000000     0x10c9 app.o
  .debug_info    0x000010c9     0x2799 clock.o
  .debug_info    0x00003862       0x5a delay.o
@@ -2002,9 +2002,9 @@ OUTPUT(I01_SD_Card.elf elf32-littlearm)
  .debug_info    0x000072e4      0x562 diskio.o
  .debug_info    0x00007846     0x2eeb ff.o
  .debug_info    0x0000a731       0xe9 main.o
- .debug_info    0x0000a81a     0x1560 SD.o
- .debug_info    0x0000bd7a     0x3022 SPI.o
- .debug_info    0x0000ed9c     0x280c USART3.o
+ .debug_info    0x0000a81a     0x1565 SD.o
+ .debug_info    0x0000bd7f     0x3022 SPI.o
+ .debug_info    0x0000eda1     0x280c USART3.o
 
 .debug_abbrev   0x00000000     0x12a0
  .debug_abbrev  0x00000000      0x244 app.o
@@ -2190,17 +2190,17 @@ OUTPUT(I01_SD_Card.elf elf32-littlearm)
  .debug_macro   0x0001332e      0x31f SPI.o
  .debug_macro   0x0001364d      0x337 USART3.o
 
-.debug_line     0x00000000     0x4c06
+.debug_line     0x00000000     0x4c0a
  .debug_line    0x00000000      0x8dc app.o
  .debug_line    0x000008dc      0x740 clock.o
  .debug_line    0x0000101c       0x49 delay.o
  .debug_line    0x00001065      0x6f7 Device_Startup/startup_samd21.o
  .debug_line    0x0000175c      0x7ec diskio.o
  .debug_line    0x00001f48      0xd37 ff.o
- .debug_line    0x00002c7f      0x6d8 main.o
- .debug_line    0x00003357      0x9a1 SD.o
- .debug_line    0x00003cf8      0x7a9 SPI.o
- .debug_line    0x000044a1      0x765 USART3.o
+ .debug_line    0x00002c7f      0x6d9 main.o
+ .debug_line    0x00003358      0x9a4 SD.o
+ .debug_line    0x00003cfc      0x7a9 SPI.o
+ .debug_line    0x000044a5      0x765 USART3.o
 
 .debug_str      0x00000000    0x749ff
  .debug_str     0x00000000    0x71d55 app.o
