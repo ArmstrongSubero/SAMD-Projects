@@ -173,7 +173,7 @@ uint8_t SDCard_Init(void){
 	{
 		SDCard_SS(1);          
 		SPI_SD_Send_Byte(0xFF);
-		UART3_Write_Text("Faile to reset card");
+		UART3_Write_Text("Failed to reset card");
 		return 1;
 	}
 		
