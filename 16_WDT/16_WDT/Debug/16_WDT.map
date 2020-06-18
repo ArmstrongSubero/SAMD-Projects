@@ -129,7 +129,7 @@ Discarded input sections
  .text          0x00000000        0x0 app.o
  .data          0x00000000        0x0 app.o
  .bss           0x00000000        0x0 app.o
- .text.watchdog_clear
+ .text.wdt_clear
                 0x00000000       0x18 app.o
  .group         0x00000000        0x8 clock.o
  .group         0x00000000        0x8 clock.o
@@ -1204,16 +1204,16 @@ OUTPUT(16_WDT.elf elf32-littlearm)
  .debug_line    0x00000ed9      0x6f7 Device_Startup/startup_samd21.o
  .debug_line    0x000015d0      0x6d8 main.o
 
-.debug_str      0x00000000    0x6eb8e
- .debug_str     0x00000000    0x6d459 app.o
-                              0x6d7e2 (size before relaxing)
- .debug_str     0x0006d459      0x7d8 clock.o
+.debug_str      0x00000000    0x6eb89
+ .debug_str     0x00000000    0x6d454 app.o
+                              0x6d7dd (size before relaxing)
+ .debug_str     0x0006d454      0x7d8 clock.o
                               0x6dc57 (size before relaxing)
- .debug_str     0x0006dc31        0xd delay.o
+ .debug_str     0x0006dc2c        0xd delay.o
                                0x2716 (size before relaxing)
- .debug_str     0x0006dc3e      0xf44 Device_Startup/startup_samd21.o
+ .debug_str     0x0006dc39      0xf44 Device_Startup/startup_samd21.o
                               0x6e1df (size before relaxing)
- .debug_str     0x0006eb82        0xc main.o
+ .debug_str     0x0006eb7d        0xc main.o
                               0x6d1e2 (size before relaxing)
 
 .debug_frame    0x00000000      0x2cc

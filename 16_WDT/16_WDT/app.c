@@ -93,7 +93,7 @@ void wdt_init(void)
 	while(WDT->STATUS.bit.SYNCBUSY);                  // Wait for synchronization
 }
 
-void watchdog_clear(void)
+void wdt_clear(void)
 {
 	if (!WDT->STATUS.bit.SYNCBUSY)                  // Check if the WDT registers are synchronized
 	{
@@ -137,7 +137,7 @@ void AppRun(void)
 	while(1)
 	{
 		// clear the watchdog timer
-		//watchdog_clear();
+		//wdt_clear();
 	}
 
 } // Apprun()
