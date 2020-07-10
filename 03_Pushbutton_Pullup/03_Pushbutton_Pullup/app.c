@@ -86,7 +86,7 @@ void AppRun(void)
 	while(1)
 	{
 		
-		// pull down mode 
+		// pull up 
 		// so we keep LED off
 		if((PORT->Group[0].IN.reg & PORT_PA16) != 0)
 		{
