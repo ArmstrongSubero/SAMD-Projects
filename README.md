@@ -1,2 +1,2 @@
-# SAMD-Projects
-Projects in C/C++ and Assembly for the SAMD21G18A microcontroller
+# VHDL-Projects
+Projects in VHDL for the Cyclone II and Cylcone IV FPGAs

@@ -86,9 +86,9 @@ void AppRun(void)
 	while(1)
 	{
 		
-		// pull up mode normally low
+		// pull down mode 
 		// so we keep LED off
-		if((PORT->Group[0].IN.reg & PORT_PA16) == 0)
+		if((PORT->Group[0].IN.reg & PORT_PA16) != 0)
 		{
 			// keep LED off
 			REG_PORT_OUTCLR0 = LED0_PIN_MASK;
