@@ -48,7 +48,7 @@ void adc_init(void)
 	/* -------------------------------------------------
 	* 1) Enable bus clock to APBC mask
 	*/
-	REG_PM_APBCMASK |=  PM_APBCMASK_A
+	REG_PM_APBCMASK |=  PM_APBCMASK_ADC;
 	
 	/* -------------------------------------------------
 	* 3) reset ADC to its initial settings and disable
