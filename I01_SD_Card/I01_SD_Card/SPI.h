@@ -45,7 +45,7 @@ void SPI_Initialize_Fast(void);
 
 
 /**
- * \def SPI_Initialize_Fast
+ * \def SPI_Exchange8bit
  * \brief Exchanges 8 bits of data on SPI bus
  * \param none 
  */
@@ -53,7 +53,7 @@ uint8_t SPI_Exchange8bit(uint8_t data);
 
 
 /**
- * \def SPI_Initialize_Fast
+ * \def SPI_SD_Send_Byte
  * \brief Exchanges 8 bits of data on SPI bus
  * \param none 
  */
@@ -62,7 +62,7 @@ uint8_t SPI_SD_Send_Byte(uint8_t byte_val);
 
 
 /**
- * \def SPI_Initialize_Fast
+ * \def SPI_SD_Read_Byte
  * \brief Exchanges 8 bits of data on SPI bus
  * \param none 
  */
