@@ -129,9 +129,9 @@ void AppInit(void)
  130:	41004414 	.word	0x41004414
 
 00000134 <AppRun>:
+ * Note:
  *
  ******************************************************************************/
-
 
 void AppRun(void)
 {
@@ -184,7 +184,7 @@ __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
  15e:	24ff      	movs	r4, #255	; 0xff
  160:	43a1      	bics	r1, r4
  162:	5011      	str	r1, [r2, r0]
-	NVIC_SetPriority(EIC_IRQn, 0);
+	
   
     /* -------------------------------------------------
 	* 2) Setup Interrupt Pin
@@ -193,7 +193,7 @@ __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
  164:	2101      	movs	r1, #1
  166:	2247      	movs	r2, #71	; 0x47
  168:	5499      	strb	r1, [r3, r2]
-     PORT->Group[EXT0_PORT].PMUX[EXT0_PIN_NUMBER<<1].bit.PMUXE = MUX_PA07A_EIC_EXTINT7; // Set up IRQ-pin (PA12) to special function A (External Interrupt 12)
+     PORT->Group[EXT0_PORT].PMUX[EXT0_PIN_NUMBER<<1].bit.PMUXE = MUX_PA07A_EIC_EXTINT7; // Set up IRQ-pin (PA7) to special function A (External Interrupt 7)
  16a:	313d      	adds	r1, #61	; 0x3d
  16c:	5c5a      	ldrb	r2, [r3, r1]
  16e:	200f      	movs	r0, #15
