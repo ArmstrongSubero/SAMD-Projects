@@ -104,7 +104,7 @@ void AppRun(void)
 	* 2) Setup Interrupt Pin
 	*/
      PORT->Group[EXT0_PORT].PINCFG[EXT0_PIN_NUMBER].reg = PORT_PINCFG_PMUXEN; // Pin pullup and enable MUX'ing
-     PORT->Group[EXT0_PORT].PMUX[EXT0_PIN_NUMBER<<1].bit.PMUXE = MUX_PA07A_EIC_EXTINT7; // Set up IRQ-pin (PA12) to special function A (External Interrupt 12)
+     PORT->Group[EXT0_PORT].PMUX[EXT0_PIN_NUMBER<<1].bit.PMUXE = MUX_PA07A_EIC_EXTINT7; // Set up IRQ-pin (PA7) to special function A (External Interrupt 7)
 	
 	
 	/* -------------------------------------------------
