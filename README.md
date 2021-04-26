@@ -1,2 +1,2 @@
-# VHDL-Projects
-Projects in VHDL for the Cyclone II and Cylcone IV FPGAs
+# SAMD-Projects
+Bare metal projects in C for the SAMD21G18A microcontrollers.
